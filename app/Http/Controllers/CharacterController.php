@@ -9,6 +9,6 @@ class CharacterController extends Controller
 {
     public function index() {
         $characters = Character::all();
-        return view("index", compact("characters"));
+        return view("characters.index", compact("characters"));
     }
 }
