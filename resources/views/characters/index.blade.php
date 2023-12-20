@@ -29,6 +29,7 @@
 
                                 <td>
                                     <a href="{{route ('characters.show', $character)}}" class="btn btn-sm btn-primary">Details </a>
+                                    <a href="{{route ('characters.edit', $character)}}" class="btn btn-sm btn-warning">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
