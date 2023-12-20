@@ -27,9 +27,14 @@
                                 <td>{{ $character->speed }}</td>
                                 <td>{{ $character->hp }}</td>
 
-                                <td>
+                                <td class="d-flex gap-3">
                                     <a href="{{route ('characters.show', $character)}}" class="btn btn-sm btn-primary">Details </a>
                                     <a href="{{route ('characters.edit', $character)}}" class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="{{route('characters.destroy', $character->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
