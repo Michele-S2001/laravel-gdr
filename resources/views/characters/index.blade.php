@@ -15,7 +15,7 @@
                             <th scope="col">Defense</th>
                             <th scope="col">Speed</th>
                             <th scope="col">Hp</th>
-                            <th scope="col">Bio</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,9 +25,13 @@
                                 <td>{{ $character->def }}</td>
                                 <td>{{ $character->speed }}</td>
                                 <td>{{ $character->hp }}</td>
-                                <td>{{ $character->bio }}</td>
+                                
+                                <td>
+                                    <a href="{{route ('characters.show', $character)}}" class="btn btn-sm btn-primary ">Details </a>
+                                </td>
                             </tr>
                         @endforeach
+                            
                     </tbody>
                 </table>
             </div>
