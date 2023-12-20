@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
             <div class="col-8">
 
-                <form action="" method="POST" class="py-4">
+                <form action="{{route("characters.store")}}" method="POST" class="py-4">
                     @csrf
 
                     <div class="mb-3">
@@ -31,7 +31,7 @@
                         <label for="bio" class="form-label">Bio</label>
                         <textarea name="bio" class="form-control" id="bio" rows="3"></textarea>
                     </div>
-
+                    <input type="submit" value="add character" class="btn btn-secondary">
                 </form>
             </div>
         </div>
