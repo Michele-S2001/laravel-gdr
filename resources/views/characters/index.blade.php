@@ -8,6 +8,7 @@
         <section class="characters-info py-3">
             <div class="container">
                 <h1>Characters Info</h1>
+                <a class="btn btn-sm btn-success" href="{{route('characters.create')}}">Add new</a>
                 <table class="table table-striped mt-3">
                     <thead class="table-warning">
                         <tr>
@@ -25,13 +26,13 @@
                                 <td>{{ $character->def }}</td>
                                 <td>{{ $character->speed }}</td>
                                 <td>{{ $character->hp }}</td>
-                                
+
                                 <td>
-                                    <a href="{{route ('characters.show', $character)}}" class="btn btn-sm btn-primary ">Details </a>
+                                    <a href="{{route ('characters.show', $character)}}" class="btn btn-sm btn-primary">Details </a>
                                 </td>
                             </tr>
                         @endforeach
-                            
+
                     </tbody>
                 </table>
             </div>
