@@ -33,7 +33,7 @@
                                     <form action="{{route('characters.destroy', $character->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                                        <input data-confirm data-target="form-{{ $character->id }}"  class="btn btn-sm btn-danger" type="submit" value="Delete">
                                     </form>
                                 </td>
                             </tr>
