@@ -15,5 +15,6 @@ use App\Http\Controllers\CharacterController;
 |
 */
 
-Route::get('/', [CharacterController::class, 'index'])->name('character.index') ;
-Route::get ('/characters/{character}' ,[CharacterController::class, 'show'])->name('characters.show');
+Route::get('/', [CharacterController::class, 'index'])->name('character.index');
+
+Route::get('/characters/{character}', [CharacterController::class, 'show'])->name('characters.show');
