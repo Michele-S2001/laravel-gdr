@@ -7,6 +7,15 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <form action="{{route("characters.store")}}" method="POST" class="py-4">
                     @csrf
@@ -33,15 +42,6 @@
                     </div>
                     <input type="submit" value="add character" class="btn btn-secondary">
                 </form>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
             </div>
         </div>
     </div>
