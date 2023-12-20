@@ -31,9 +31,9 @@ class CharacterController extends Controller
         $new_character = Character::create($data);
         return redirect()->route("characters.show", $new_character->id);
     }
-    public function edit()
+    public function edit(Character $character)
     {
-        //
+        return view("characters.edit", compact("character"));
     }
 
     public function update()
