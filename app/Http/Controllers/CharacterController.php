@@ -36,9 +36,11 @@ class CharacterController extends Controller
         return view("characters.edit", compact("character"));
     }
 
-    public function update()
+    public function update(Request $request, Character $character)
     {
-        //
+        $data = $request->all();
+        $character->update($data);
+        return redirect()->route('characters.show', $character->id);
     }
 
     public function destroy()

@@ -24,3 +24,5 @@ Route::get('/characters/{character}', [CharacterController::class, 'show'])->nam
 Route::post('/characters', [CharacterController::class, 'store'])->name('characters.store');
 
 Route::get('/characters/{character}/edit', [CharacterController::class, 'edit'])->name('characters.edit');
+
+Route::put('/characters/{character}', [CharacterController::class, 'update'])->name('characters.update');

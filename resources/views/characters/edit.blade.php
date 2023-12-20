@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-8">
 
-            <form action="" method="POST" class="py-4">
+            <form action="{{ route('characters.update', $character->id) }}" method="POST" class="py-4">
                 @csrf
                 @method('PUT')
 
