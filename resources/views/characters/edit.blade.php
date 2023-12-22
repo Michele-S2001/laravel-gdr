@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.app')
 
 @section('title-name', 'Characters - edits')
 
-@section('main-content')
+@section('content')
 
 <div class="container">
     <div class="row justify-content-center">

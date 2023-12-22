@@ -1,8 +1,8 @@
-@extends('layouts.default')
+@extends('layouts.app')
 
 @section('title-name', 'Characters - infos')
 
-@section('main-content')
+@section('content')
 
     <main class="main-content">
         <section class="characters-info py-3">

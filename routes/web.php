@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Character;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Character;
 use App\Http\Controllers\CharacterController;
 
 /*
@@ -15,6 +16,19 @@ use App\Http\Controllers\CharacterController;
 |
 */
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+/**
+ * rotte
+ */
 Route::get('/', [CharacterController::class, 'index'])->name('characters.index');
 
 Route::get('/characters/create', [CharacterController::class, 'create'])->name('characters.create');
@@ -29,3 +43,5 @@ Route::put('/characters/{character}', [CharacterController::class, 'update'])->n
 
 
 Route::delete('/characters/{character}', [CharacterController::class, 'destroy'])->name('characters.destroy');
+
+require __DIR__ . '/auth.php';
