@@ -26,6 +26,14 @@
                     <input type="text" name="name" class="form-control" id="name" placeholder="Name" value="{{ old('name', $character->name) }}">
                 </div>
                 <div class="mb-3">
+                    <label for="type_id" class="form-label">Class</label>
+                    <select name="type_id" id="type_id" class="form-control">
+                        @foreach ($types as $type)
+                        <option @selected( old('type_id', $character->type->id) == $type->id ) value="{{ $type->id }}"> {{ $type->name }} </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label for="def" class="form-label">Def</label>
                     <input type="text" name="def" class="form-control" id="def" placeholder="Def" value="{{ old('def', $character->def) }}">
                 </div>
