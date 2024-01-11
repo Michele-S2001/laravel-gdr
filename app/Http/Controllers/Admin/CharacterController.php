@@ -43,13 +43,15 @@ class CharacterController extends Controller
     }
     public function edit(Character $character)
     {
-        return view("admin.characters.edit", compact("character"));
+        $types = Type::all();
+        return view("admin.characters.edit", compact("character", "types"));
     }
 
     public function update(Request $request, Character $character)
     {
         $data = $request->validate([
             "name" => "required|min:3|max:50",
+            "type_id" => "required|exists:types,id",
             "bio" => "nullable|min:10",
             "def" => "required|numeric|min:0|max:255",
             "speed" => "required|numeric|min:0|max:255",
@@ -57,6 +59,8 @@ class CharacterController extends Controller
         ]);
         $character->update($data);
         return redirect()->route('admin.characters.show', $character->id);
+
+        
     }
 
     public function destroy(Character $character)
