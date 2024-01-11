@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Character;
+use App\Models\Type;
 
 class CharacterController extends Controller
 {
@@ -21,13 +22,16 @@ class CharacterController extends Controller
 
     public function create()
     {
-        return view('admin.characters.create');
+        $types = Type::all();
+
+        return view('admin.characters.create', compact('types'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
             "name" => "required|min:3|max:50",
+            "type_id" => "required|exists:types,id",
             "bio" => "nullable|min:10",
             "def" => "required|numeric|min:0|max:255",
             "speed" => "required|numeric|min:0|max:255",
