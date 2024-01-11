@@ -13,6 +13,7 @@
                     <thead class="table-warning">
                         <tr>
                             <th scope="col">Name</th>
+                            <th scope="col">Class</th>
                             <th scope="col">Defense</th>
                             <th scope="col">Speed</th>
                             <th scope="col">Hp</th>
@@ -23,6 +24,7 @@
                         @foreach ($characters as $character)
                             <tr>
                                 <td>{{ $character->name }}</td>
+                                <td>{{ $character->type->name }}</td>
                                 <td>{{ $character->def }}</td>
                                 <td>{{ $character->speed }}</td>
                                 <td>{{ $character->hp }}</td>
