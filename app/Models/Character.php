@@ -14,6 +14,12 @@ class Character extends Model
         "def",
         "speed",
         "hp",
-        "bio"
+        "bio",
+        "type_id"
     ];
+
+    public function type()
+     {
+        return $this->belongsTo(Type::class);
+     }
 }

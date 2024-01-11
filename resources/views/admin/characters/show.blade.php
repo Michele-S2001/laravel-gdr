@@ -6,6 +6,7 @@
 
 <div class="container">
     <h1>Name: {{ $character->name }}</h1>
+    <p> Class: {{ $character->type->name}}</p>
     <p>Def: {{ $character->def }}</p>
     <p>Speed: {{ $character->speed }}</p>
     <p>Hp: {{ $character->hp }}</p>
