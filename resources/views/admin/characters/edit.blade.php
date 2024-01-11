@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('characters.update', $character->id) }}" method="POST" class="py-4">
+            <form action="{{ route('admin.characters.update', $character->id) }}" method="POST" class="py-4">
                 @csrf
                 @method('PUT')
 
@@ -42,7 +42,7 @@
                     <textarea name="bio" class="form-control" id="bio" rows="3">{{ old('bio', $character->bio) }}</textarea>
                 </div>
                 <input type="submit" value="Save" class="btn btn-secondary">
-                <a class="btn btn-danger mx-5 d-inline-block" href="{{route('characters.index')}}">Undo</a>
+                <a class="btn btn-danger mx-5 d-inline-block" href="{{route('admin.characters.index')}}">Undo</a>
             </form>
         </div>
     </div>

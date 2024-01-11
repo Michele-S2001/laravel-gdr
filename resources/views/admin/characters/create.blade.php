@@ -17,7 +17,7 @@
                     </div>
                 @endif
 
-                <form action="{{route("characters.store")}}" method="POST" class="py-4">
+                <form action="{{route("admin.characters.store")}}" method="POST" class="py-4">
                     @csrf
 
                     <div class="mb-3">
