@@ -15,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('character_id');
             $table->unsignedBigInteger('item_id');
 
-            $table->foreign('character_id')->references('id')->on('characters');
+            $table->foreign('character_id')->references('id')->on('characters')->cascadeOnDelete();
             $table->foreign('item_id')->references('id')->on('items');
 
             $table->primary(['character_id', 'item_id']);
