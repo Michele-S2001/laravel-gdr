@@ -45,6 +45,23 @@
                     <label for="hp" class="form-label">Hp</label>
                     <input type="text" name="hp" class="form-control" id="hp" placeholder="Hp" value="{{ old('hp', $character->hp) }}">
                 </div>
+                <div class="mb-3 d-flex gap-3 flex-wrap">
+                    <h4> Select items </h4>
+                    <div class="d-flex gap-3 flex-wrap">
+                        @foreach($items as $item)
+                            <input
+                                name="items[]"
+                                class="form-check-input"
+                                type="checkbox" value="{{$item->id}}"
+                                id="item-{{$item->id}}"
+                                @checked(in_array($item->id, old('items', $character->items->pluck('id')->all())))
+                            >
+                            <label class="form-check-label" for="item-{{$item->id}}">
+                                {{$item->name}}
+                            </label>
+                        @endforeach
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label for="bio" class="form-label">Bio</label>
                     <textarea name="bio" class="form-control" id="bio" rows="3">{{ old('bio', $character->bio) }}</textarea>
