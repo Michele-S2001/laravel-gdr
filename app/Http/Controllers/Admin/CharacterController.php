@@ -78,9 +78,9 @@ class CharacterController extends Controller
         $character->update($data);
 
         if ($request->has('items')) {           
-            $new_character->items()->sync($data['items']);
+            $character->items()->sync($data['items']);
         } else {
-            $new_character->items()->detach();
+            $character->items()->detach();
         }
 
         return redirect()->route('admin.characters.show', $character->id);
