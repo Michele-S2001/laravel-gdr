@@ -32,10 +32,10 @@
                                 <td class="d-flex gap-3">
                                     <a href="{{route ('admin.characters.show', $character)}}" class="btn btn-sm btn-primary">Details </a>
                                     <a href="{{route ('admin.characters.edit', $character)}}" class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="{{route('admin.characters.destroy', $character->id)}}" method="POST">
+                                    <form id="{{'form-'.$character->id}}" action="{{route('admin.characters.destroy', $character->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <input data-confirm data-target="form-{{ $character->id }}"  class="btn btn-sm btn-danger" type="submit" value="Delete">
+                                        <input data-delete data-target="#form-{{ $character->id }}"  class="btn btn-sm btn-danger" type="submit" value="Delete">
                                     </form>
                                 </td>
                             </tr>
@@ -46,6 +46,14 @@
             </div>
         </section>
     </main>
+
+    <div class="c-modal text-center">
+        <div class="c-modal__inner p-4">
+            <h5 class="mb-4">are you sure you want to delete this item?</h5>
+            <button id="destroy" class="btn btn-danger">Yes, delete this </button>
+            <button id="undo" class="btn btn-secondary">No, I changed my mind</button>
+        </div>
+    </div>
 
 @endsection
 
