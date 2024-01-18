@@ -18,4 +18,13 @@ class CharacterController extends Controller
             'results' => $characters,
         ]);
     }
+
+    public function show(Character $character) {
+
+        $character->load('items', 'type');
+        return response()->json ([
+            'success' => true,
+            'result' => $character,
+        ]);
+    }
 }
