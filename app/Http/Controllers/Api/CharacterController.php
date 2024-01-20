@@ -9,13 +9,23 @@ use Illuminate\Http\Request;
 
 class CharacterController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
 
-        $characters = Character::all();
+        $data = $request->validate([
+            'arrFilteredTypes' => "nullable|exists:items,id"
+        ]);
+
+        if($request->has('arrFilteredTypes')) {
+            $query = Character::whereIn('type_id', $data['arrFilteredTypes'])->with('type');
+        } else {
+            $query = Character::with('type');
+        }
+
+        $characters = $query->get();
 
         return response()->json ([
             'success' => true,
-            'results' => $characters,
+            'results' => $characters
         ]);
     }
 
